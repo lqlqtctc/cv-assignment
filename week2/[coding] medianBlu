@@ -1,0 +1,40 @@
+import cv2
+import random
+import numpy as np
+
+
+def medianBlur(img, kernel, padding_way):
+    #确定img和kernel的长宽
+    W=len(img[:,0])
+    H=len(img[0,:])
+    m=len(kernel[:,0])
+    n=len(kernel[0,:])
+    
+    #定义输出矩阵
+    medimg=np.zeros((W,H))
+    
+    #padding方式
+    if padding_way=='REPLICA':
+        imgpad=np.pad(img, (int(m/2),int(n/2)), 'edge')
+        
+    if padding_way=='ZERO':
+        imgpad=np.pad(img, (int(m/2),int(n/2)), 'constant')
+    
+    #中位卷积
+    for i in range(0,W):
+        for j in range(0,H):
+            medimg[i,j]=np.median(kernel*imgpad[i:i+m,j:j+n])
+    
+    return medimg
+    
+    
+img = cv2.imread('C:/Users/Public/Pictures/temp.jpg', 0)
+kernel = np.array([[6, 1, 2], [1, 4, 1], [2, 1, 4]], np.float32)
+
+#padding_way='ZERO'
+padding_way='REPLICA'
+
+imgend = medianBlur(img,kernel,padding_way)
+
+cv2.imshow('1',imgend)
+cv2.waitKey()
