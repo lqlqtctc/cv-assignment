@@ -8,8 +8,8 @@
 原图为thumb.jpg，
 ![Image text](https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/A.png)
 其中输入图像A，和B分别可显示为
-![Image text](.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/tree/master/week2/A.png">)
-![Image text](<img src="https://github.com/lqlqtctc/cv-assignment/tree/master/week2/B.png">)
+![Image text](.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/A.png">)
+![Image text](<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/B.png">)
 原变换矩阵为
 Mexample=np.array([[ 9.29770993e-01, -2.45747082e-02, -1.07382848e+01],
                    [-1.48227498e-01,  9.58144558e-01,  9.48222910e+01],
