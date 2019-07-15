@@ -7,7 +7,7 @@
 [coding] RANSAC  为coding作业，ransac的实现。
 原图为thumb.jpg，.<img src="https://github.com/lqlqtctc/cv-assignment/tree/master/week2/thumb.jpg">
 其中输入图像A，和B分别可显示为
-<img src="https://github.com/lqlqtctc/cv-assignment/tree/master/week2/A.png">
+.<img src="https://github.com/lqlqtctc/cv-assignment/tree/master/week2/A.png">
 <img src="https://github.com/lqlqtctc/cv-assignment/tree/master/week2/B.png">
 原变换矩阵为
 Mexample=np.array([[ 9.29770993e-01, -2.45747082e-02, -1.07382848e+01],
