@@ -7,12 +7,12 @@
 3.[coding] RANSAC  为coding作业，ransac的实现。
 原图缩略图为thumb.jpg，
 
-.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/thumb.jpg" width="200" height="200" />
+.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/image/thumb.jpg" width="200" height="200" />
 
 其中输入图像A，和B缩略图分别可显示为
 
-.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/A.png" width="200" height="200" />
-.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/B.png" width="200" height="200" />
+.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/image/A.png" width="200" height="200" />
+.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/image/B.png" width="200" height="200" />
 
 原变换矩阵为
 Mexample=np.array([[ 9.29770993e-01, -2.45747082e-02, -1.07382848e+01],
@@ -26,4 +26,4 @@ array([[-3.07711084e-01, -9.92736077e-02,  2.00939790e+02],
 
 该矩阵对A进行变换的图像为C,显示为
 
-.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/C.png" width="200" height="200" />
+.<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/image/C.png" width="200" height="200" />
