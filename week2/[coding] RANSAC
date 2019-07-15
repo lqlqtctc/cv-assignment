@@ -1,0 +1,76 @@
+import cv2
+import random
+import numpy as np
+
+
+#RANSAC函数，返回匹配的矩阵
+def ransacMatching(A, B):
+    AM=len(A[:,0])
+    AN=len(A[0,:])
+    Bm=len(B[:,0])
+    Bn=len(B[0,:])
+    
+    
+    #迭代次数
+    interations=0
+    inpointmax=0
+    while interations<5000:
+        
+        inpoint=0
+        
+        #随机选4对数,并保证不在一条直线上
+        randomxy=0
+        while randomxy==0:
+            xa=np.random.randint(AM,size=4)
+            ya=np.random.randint(AN,size=4)
+            xb=np.random.randint(Bm,size=4)
+            yb=np.random.randint(Bn,size=4)
+            randomxy=0;
+            for i in range(0,4):
+                for j in range(0,4):
+                    for k in range(0,4):
+                        if i!=j and i!=k and j!=k and ((ya[i]-ya[j])*(xa[i]-xa[k])==(ya[i]-ya[k])*(xa[i]-xa[j]) or (yb[i]-yb[j])*(xb[i]-xb[k])==(yb[i]-yb[k])*(xb[i]-xb[j])):
+                            randomxy=1
+        
+        #求变换矩阵
+        pts1 = np.float32([[xa[0], ya[0]], [xa[1], ya[1]], [xa[2], ya[2]], [xa[3], ya[3]]])
+        pts2 = np.float32([[xb[0], yb[0]], [xb[1], yb[1]], [xb[2], yb[2]], [xb[3], yb[3]]])
+        M_warp = cv2.getPerspectiveTransform(pts1, pts2)
+        
+        #求内点个数
+        
+        for i in range(0,AM):
+            for j in range(0,AN):
+                c=np.array([i,j,1])
+                c=c.transpose()
+                x2=int(M_warp[0,:]@c)
+                y2=int(M_warp[1,:]@c)
+                if x2>=0 and x2<AM and y2>=0 and y2<AN:
+                    if abs(B[x2,y2]-A[i,j])<=A[i,j]*0.01:
+                        inpoint=inpoint+1
+                
+                #如果此次结果更优，进行迭代
+                if inpoint>inpointmax:
+                    inpointmax=inpoint
+                    Mmax=M_warp.copy()
+                    interations=interations+1
+    
+    return Mmax
+    
+
+#确定输入的图像A和B
+A = cv2.imread('C:/Users/liuquan/Pictures/thumb.jpg',0)
+cv2.imshow('A', A)
+cv2.waitKey(0)
+Mexample=np.array([[ 9.29770993e-01, -2.45747082e-02, -1.07382848e+01],
+                   [-1.48227498e-01,  9.58144558e-01,  9.48222910e+01],
+                   [-2.29059974e-04,  1.24297429e-04,  1.00000000e+00]])
+height, width = A.shape
+B= cv2.warpPerspective(A, Mexample, (width, height))
+
+cv2.imshow('B', B)
+cv2.waitKey(0)
+
+
+#进行ransac
+ransacMatching(A, B)
