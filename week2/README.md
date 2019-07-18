@@ -1,10 +1,13 @@
 1.作业要求 为作业的要求原文
 
 
-2.[coding] medianBlu 为coding作业，中位数卷积的实现
+2.[reading] K-means 为K-means的思维导图
 
 
-3.[coding] RANSAC  为coding作业，ransac的实现。
+3.[coding] medianBlu 为coding作业，中位数卷积的实现
+
+
+4.[coding] RANSAC  为coding作业，ransac的实现。
 原图缩略图为thumb.jpg，
 
 .<img src="https://raw.githubusercontent.com/lqlqtctc/cv-assignment/master/week2/image/thumb.jpg" width="200" height="200" />
