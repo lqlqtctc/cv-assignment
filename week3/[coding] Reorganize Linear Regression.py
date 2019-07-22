@@ -96,21 +96,6 @@ run()
 
 
 
-# In[64]:
-
-
-x_list, y_list, w, b = gen_sample_data()
-
-plt.scatter(x_list,y_list)
-
-
-# In[41]:
-
-
-
-
-
-# In[ ]:
 
 
 
